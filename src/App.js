@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { GET_POSICAO } from "./api";
 
 function App() {
+  const [data, setData] = React.useState(null);
+
+  async function getUser() {
+    const { url, options } = GET_POSICAO();
+    fetch(url, options)
+      .then((r) => r.json())
+      .then((json) => setData(json));
+  }
+  setInterval(() => {
+    getUser();
+  }, 5000);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {data != null &&
+        data.l.map((item) => (
+          <p>
+            {item.vs.map((posicao) => (
+              <div>
+                <p>Posição X: {posicao.px}</p>
+                <p>Posição Y: {posicao.py}</p>
+              </div>
+            ))}
+          </p>
+        ))}
     </div>
   );
 }
