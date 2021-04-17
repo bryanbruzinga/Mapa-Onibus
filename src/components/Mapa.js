@@ -1,19 +1,33 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
-const Mapa = () => {
-    return (
-        <MapContainer center={[-23.5489, -46.6388]} zoom={13} scrollWheelZoom={true}>
-        <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <Marker position={[-23.5489, -46.6388]}>
-          <Popup>
-            Estou aqui.
-          </Popup>
-        </Marker>
-      </MapContainer>
-    )
-}
+const Mapa = ({ data, latitude, longitude }) => {
+  return (
+    <MapContainer
+      center={[latitude, longitude]}
+      zoom={13}
+      scrollWheelZoom={true}
+    >
+      <TileLayer
+        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+      {/* {data.map((item) =>
+        item.vs.map((saida, index) => {
+          return (
+            <Marker key={index} position={[saida.px, saida.py]}>
+              {console.log(saida.px)}
+              <Popup>Estou aqui.</Popup>
+            </Marker>
+          );
+        })
+      )} */}
+    </MapContainer>
+  );
+};
 
-export default Mapa
+Mapa.defaultProps = {
+  latitude: -23.5489,
+  longitude: -46.6388,
+};
+
+export default Mapa;

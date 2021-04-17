@@ -1,22 +1,25 @@
 import React from "react";
 import { GET_POSICAO } from "./api";
+import Mapa from "./components/Mapa";
 
 function App() {
-  const [data, setData] = React.useState(null);
+  const [data, setData] = React.useState([]);
 
-  async function getUser() {
+  React.useEffect(() => {
+    puxarPosicao();
+  }, []);
+
+  function puxarPosicao() {
     const { url, options } = GET_POSICAO();
     fetch(url, options)
       .then((r) => r.json())
-      .then((json) => setData(json));
+      .then((json) => setData(json.l));
   }
-  setInterval(() => {
-    getUser();
-  }, 5000);
 
   return (
     <div>
-      {data != null &&
+      <Mapa data={data} />
+      {/* {data != null &&
         data.l.map((item) => (
           <p>
             {item.vs.map((posicao) => (
@@ -26,7 +29,7 @@ function App() {
               </div>
             ))}
           </p>
-        ))}
+        ))} */}
     </div>
   );
 }
