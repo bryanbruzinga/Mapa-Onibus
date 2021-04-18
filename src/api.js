@@ -2,7 +2,16 @@ export const ALT_URL = "https://aiko-olhovivo-proxy.aikodigital.io";
 
 export function GET_POSICAO() {
   return {
-    url: ALT_URL + "/Posicao",
+    url: ALT_URL + "/Parada/Buscar?termosBusca=340015329",
+    options: {
+      method: "GET",
+    },
+  };
+}
+
+export function GET_PARADA_TERMO_BUSCA() {
+  return {
+    url: ALT_URL + "/Parada/Buscar?termosBusca=340015329",
     options: {
       method: "GET",
     },

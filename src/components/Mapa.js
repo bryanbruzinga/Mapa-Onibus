@@ -1,28 +1,23 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
+import MarkerMap from "./MarkerMap";
 
-const Mapa = ({ data, latitude, longitude }) => {
-  return (
-    <MapContainer
-      center={[latitude, longitude]}
-      zoom={13}
-      scrollWheelZoom={true}
-    >
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      {/* {data.map((item) =>
-        item.vs.map((saida, index) => {
-          return (
-            <Marker key={index} position={[saida.px, saida.py]}>
-              {console.log(saida.px)}
-              <Popup>Estou aqui.</Popup>
-            </Marker>
-          );
-        })
-      )} */}
-    </MapContainer>
-  );
+const Mapa = ({ dataParada, latitude, longitude }) => {
+  if (dataParada)
+    return (
+      <MapContainer
+        center={[latitude, longitude]}
+        zoom={13}
+        scrollWheelZoom={true}
+      >
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        {dataParada.map((item, index) => (
+          <MarkerMap key={index} py={item.py} px={item.px} detalhes={item.np} />
+        ))}
+      </MapContainer>
+    );
 };
 
 Mapa.defaultProps = {
