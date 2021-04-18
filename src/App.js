@@ -15,7 +15,7 @@ function App() {
     const { url, options } = GET_POSICAO();
     fetch(url, options)
       .then((r) => r.json())
-      .then((json) => setDataPosicao(json));
+      .then((json) => setDataPosicao(json.l));
   }
 
   function puxarParada() {
@@ -24,7 +24,16 @@ function App() {
       .then((r) => r.json())
       .then((json) => setDataParada(json));
   }
-  return <>{dataParada != null && <Mapa dataParada={dataParada} />}</>;
+
+  console.log(dataParada);
+
+  return (
+    <>
+      {dataParada != null && (
+        <Mapa dataParada={dataParada} dataPosicao={dataPosicao} />
+      )}
+    </>
+  );
 }
 
 export default App;

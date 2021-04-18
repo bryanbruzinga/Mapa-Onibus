@@ -1,20 +1,46 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import MarkerMap from "./MarkerMap";
+import { Icon } from "leaflet";
 
-const Mapa = ({ dataParada, latitude, longitude }) => {
+const Mapa = ({ dataPosicao, dataParada, latitude, longitude }) => {
+  const paradaIcon = new Icon({
+    iconUrl: "./icons/bus-stop.svg",
+    iconSize: [25, 25],
+  });
+
+  const busIcon = new Icon({
+    iconUrl: "./icons/bus.svg",
+    iconSize: [13, 13],
+  });
+
   if (dataParada)
     return (
       <MapContainer
         center={[latitude, longitude]}
         zoom={13}
-        scrollWheelZoom={true}
+        scrollWheelZoom={false}
       >
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {dataParada.map((item, index) => (
-          <MarkerMap key={index} py={item.py} px={item.px} detalhes={item.np} />
+          <MarkerMap
+            key={index}
+            py={item.py}
+            px={item.px}
+            detalhes={`Parada ${item.np}`}
+            icon={paradaIcon}
+          />
+        ))}
+        {dataPosicao.map((item, index) => (
+          <MarkerMap
+            key={index}
+            py={item.vs[0].py}
+            px={item.vs[0].px}
+            detalhes={`Linha ${item.c} vindo de ${item.lt1} com destino a ${item.lt0}`}
+            icon={busIcon}
+          />
         ))}
       </MapContainer>
     );
