@@ -38,7 +38,7 @@ export function GET_LINHAS(linhaBuscada) {
 
 export function GET_PREVISAO_PARADA(parada) {
   return {
-    url: ALT_URL + ` /Previsao/Parada?codigoParada=${parada}`,
+    url: ALT_URL + `/Previsao/Parada?codigoParada=${parada}`,
     options: {
       method: "GET",
     },

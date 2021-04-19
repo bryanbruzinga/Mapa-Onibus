@@ -1,6 +1,7 @@
 import React from "react";
 import { GET_PARADA_TERMO_BUSCA, GET_POSICAO } from "./api";
 import Mapa from "./components/Mapa";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   const [dataParada, setDataParada] = React.useState([]);
@@ -25,14 +26,13 @@ function App() {
       .then((json) => setDataParada(json));
   }
 
-  console.log(dataParada);
-
   return (
-    <>
+    <div className="container">
+      <Sidebar />
       {dataParada != null && (
         <Mapa dataParada={dataParada} dataPosicao={dataPosicao} />
       )}
-    </>
+    </div>
   );
 }
 

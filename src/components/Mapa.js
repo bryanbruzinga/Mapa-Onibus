@@ -1,3 +1,4 @@
+import React from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import MarkerMap from "./MarkerMap";
 import { Icon } from "leaflet";
@@ -10,14 +11,14 @@ const Mapa = ({ dataPosicao, dataParada, latitude, longitude }) => {
 
   const busIcon = new Icon({
     iconUrl: "./icons/bus.svg",
-    iconSize: [13, 13],
+    iconSize: [15, 15],
   });
 
   if (dataParada)
     return (
       <MapContainer
         center={[latitude, longitude]}
-        zoom={13}
+        zoom={16}
         scrollWheelZoom={false}
       >
         <TileLayer

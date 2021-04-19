@@ -24,3 +24,7 @@ a {
     height: 100vh;
     width: 80vw;
 }
+
+.container {
+    display: flex;
+}
