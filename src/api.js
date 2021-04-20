@@ -18,18 +18,11 @@ export function GET_PARADA_TERMO_BUSCA() {
   };
 }
 
-export function GET_PARADAS(paradaBuscada) {
+export function GET_LINHAS(linhaBuscada, sentido) {
   return {
-    url: ALT_URL + `/Parada/Buscar?termosBusca=${paradaBuscada}`,
-    options: {
-      method: "GET",
-    },
-  };
-}
-
-export function GET_LINHAS(linhaBuscada) {
-  return {
-    url: ALT_URL + `/Linha/Buscar?termosBusca=${linhaBuscada}`,
+    url:
+      ALT_URL +
+      `/Linha/BuscarLinhaSentido?termosBusca=${linhaBuscada}&sentido=${sentido}`,
     options: {
       method: "GET",
     },

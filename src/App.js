@@ -1,7 +1,7 @@
 import React from "react";
 import { GET_PARADA_TERMO_BUSCA, GET_POSICAO } from "./api";
 import Mapa from "./components/Mapa";
-import Sidebar from "./components/Sidebar";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 function App() {
   const [dataParada, setDataParada] = React.useState([]);

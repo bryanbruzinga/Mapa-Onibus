@@ -1,0 +1,41 @@
+.sidebarContainer {
+    width: 30vw;
+    background: #212121;
+    padding: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+label {
+    color: white;
+    font-family: Helvetica, sans-serif;
+}
+
+input {
+    padding: 0.5rem;
+    width: 5rem;
+    border-radius: .3rem;
+    border: none;
+}
+
+select {
+    padding: .2rem;
+    width: 21rem;
+}
+
+.input {
+    margin-bottom: 1rem;
+}
+
+.btnBuscar {
+    padding: 0.5rem 1.2rem;
+    border: none;
+    cursor: pointer;
+    border-radius: .3rem;
+    background: #6937FF;
+    margin-bottom: 1rem;
+}

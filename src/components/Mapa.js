@@ -30,7 +30,8 @@ const Mapa = ({ dataPosicao, dataParada, latitude, longitude }) => {
             key={index}
             py={item.py}
             px={item.px}
-            detalhes={`Parada ${item.np}`}
+            nomeParada={item.np}
+            codParada={item.cp}
             icon={paradaIcon}
           />
         ))}
