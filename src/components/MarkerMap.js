@@ -2,7 +2,7 @@ import React from "react";
 import { Marker, Popup } from "react-leaflet";
 import { GET_PREVISAO_PARADA } from "../api";
 
-const MarkerMap = ({ py, px, nomeParada, codParada, icon }) => {
+const MarkerMap = ({ py, px, nomeParada, codParada, icon, detalhes }) => {
   const [previsao, setPrevisao] = React.useState(null);
 
   function puxarPrevisaoParada(codParada) {
@@ -15,12 +15,16 @@ const MarkerMap = ({ py, px, nomeParada, codParada, icon }) => {
   }
 
   return (
-    <Marker
-      position={[py, px]}
-      icon={icon}
-      onClick={puxarPrevisaoParada(codParada)}
-    >
-      <Popup>{nomeParada}</Popup>
+    <Marker position={[py, px]} icon={icon}>
+      <Popup>
+        {detalhes ? (
+          <p>{detalhes}</p>
+        ) : (
+          <p>
+            Parada: {nomeParada} Código: {codParada}
+          </p>
+        )}
+      </Popup>
     </Marker>
   );
 };

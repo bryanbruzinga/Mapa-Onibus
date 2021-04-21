@@ -3,13 +3,19 @@ import styles from "./SidebarInfo.module.css";
 
 const SidebarInfo = ({ linhaRecebida }) => {
   return (
-    <div>
+    <div className={styles.responseContainer}>
       {linhaRecebida != null &&
         linhaRecebida.map((item, index) => (
           <div key={index} className={styles.response}>
-            <p>Código da Linha: ${item.cl}</p>
-            <p>Sentido Terminal Principal: ${item.tp}</p>
-            <p>Sentido Terminal Secundário: ${item.ts}</p>
+            <p>
+              Código da Linha: <span>{item.cl}</span>
+            </p>
+            <p>
+              Sentido Terminal Principal: <span>{item.tp.toLowerCase()}</span>
+            </p>
+            <p>
+              Sentido Terminal Secundário: <span>{item.ts.toLowerCase()}</span>
+            </p>
           </div>
         ))}
     </div>

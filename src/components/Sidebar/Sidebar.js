@@ -35,10 +35,9 @@ const Sidebar = () => {
         <div className={styles.input}>
           <label htmlFor="linha">Digite o número da linha: </label>
           <input
-            type="number"
+            type="text"
             placeholder="Nº Linha"
             name="linha"
-            max="9999"
             value={linha}
             required
             onChange={handleChange}
@@ -47,7 +46,7 @@ const Sidebar = () => {
         <div className={styles.input}>
           <label htmlFor="sentido">Escolha o sentido da rota</label>
           <select value={sentido} onChange={handleChangeSelect} name="sentido">
-            <option value="1" selected>
+            <option value="1">
               Sentido Terminal principal para secundário.
             </option>
             <option value="2">
