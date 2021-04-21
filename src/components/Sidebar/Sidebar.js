@@ -30,7 +30,11 @@ const Sidebar = () => {
   }
 
   return (
-    <div className={styles.sidebarContainer}>
+    <aside className={styles.sidebarContainer}>
+      <div className={styles.title}>
+        <h2>Procure por seu ônibus</h2>
+        <img src="/icons/logo.svg" alt="Mapa logo" />
+      </div>
       <form onSubmit={handleSubmit}>
         <div className={styles.input}>
           <label htmlFor="linha">Digite o número da linha: </label>
@@ -57,7 +61,7 @@ const Sidebar = () => {
         <button className={styles.btnBuscar}>Buscar</button>
       </form>
       <SidebarInfo linhaRecebida={linhaRecebida} />
-    </div>
+    </aside>
   );
 };
 

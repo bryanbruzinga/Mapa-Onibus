@@ -28,3 +28,7 @@ a {
 .container {
     display: flex;
 }
+
+.leaflet-popup-content-wrapper {
+    width: 350px;
+}

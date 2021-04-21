@@ -26,6 +26,10 @@ function App() {
       .then((json) => setDataParada(json));
   }
 
+  setTimeout(() => {
+    puxarPosicao();
+  }, 10000);
+
   return (
     <div className="container">
       <Sidebar />

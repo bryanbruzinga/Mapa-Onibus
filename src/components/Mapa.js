@@ -40,7 +40,9 @@ const Mapa = ({ dataPosicao, dataParada, latitude, longitude }) => {
             key={index}
             py={item.vs[0].py}
             px={item.vs[0].px}
-            detalhes={`Linha ${item.c} vindo de ${item.lt1} com destino a ${item.lt0}`}
+            linha={item.c}
+            origem={item.lt1}
+            destino={item.lt0}
             icon={busIcon}
           />
         ))}
