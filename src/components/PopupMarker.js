@@ -10,7 +10,7 @@ const PopupMarker = ({ nomeParada, codParada }) => {
       const { url, options } = GET_PREVISAO_PARADA(codParada);
       fetch(url, options)
         .then((r) => r.json())
-        .then((json) => setPrevisao(json.p.l));
+        .then((json) => json.p.l != null && setPrevisao(json.p.l));
     }
   }
 

@@ -16,7 +16,7 @@ function App() {
     const { url, options } = GET_POSICAO();
     fetch(url, options)
       .then((r) => r.json())
-      .then((json) => setDataPosicao(json.l));
+      .then((json) => json != null && setDataPosicao(json.l));
   }
 
   function puxarParada() {
