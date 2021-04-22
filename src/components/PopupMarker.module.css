@@ -12,6 +12,20 @@
     margin-bottom: 1rem;
 }
 
+.btnPrevisao {
+    border: none;
+    background: #542CCC; 
+    color: white;
+    padding: .5rem 1rem;
+    border-radius: .3rem;
+    transition: filter .2s;
+    cursor: pointer;
+}
+
+.btnPrevisao:hover {
+    filter: brightness(.85);
+}
+
 .busItem {
     border-bottom: 1px solid #ccc;
     display: flex;

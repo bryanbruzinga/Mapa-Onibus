@@ -15,12 +15,15 @@ const PopupMarker = ({ nomeParada, codParada }) => {
   }
 
   return (
-    <div
-      className={styles.popupContainer}
-      onClick={puxarPrevisaoParada(codParada)}
-    >
+    <div className={styles.popupContainer}>
       <h3>Parada {nomeParada}</h3>
       <h3>Ônibus a passar por essa parada</h3>
+      <button
+        onClick={() => puxarPrevisaoParada(codParada)}
+        className={styles.btnPrevisao}
+      >
+        Previsão de chegada
+      </button>
       {previsao != null ? (
         <div className={styles.busList}>
           {previsao.map((dados, index) => (
@@ -39,7 +42,7 @@ const PopupMarker = ({ nomeParada, codParada }) => {
           ))}
         </div>
       ) : (
-        <p>Não há ônibus a passar por essa parada.</p>
+        <p>Clique no botão para ver quais ônibus passarão por aqui.</p>
       )}
     </div>
   );

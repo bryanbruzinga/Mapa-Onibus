@@ -11,7 +11,7 @@ export function GET_POSICAO() {
 
 export function GET_PARADA_TERMO_BUSCA() {
   return {
-    url: ALT_URL + "/Parada/Buscar?termosBusca=340015329",
+    url: ALT_URL + "/Parada/Buscar?termosBusca=a",
     options: {
       method: "GET",
     },
