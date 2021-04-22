@@ -31,11 +31,17 @@ const Sidebar = () => {
 
   return (
     <aside className={styles.sidebarContainer}>
-      <div className={styles.title}>
-        <h2>Procure por seu ônibus</h2>
+      <header className={styles.title}>
+        <h2>Pegue o ônibus</h2>
         <img src="/icons/logo.svg" alt="Mapa logo" />
-      </div>
+      </header>
       <form onSubmit={handleSubmit}>
+        <p>
+          Clique nos elementos
+          <img src="/icons/bus-stop.svg" alt="icone parada de onibus" /> ou
+          <img src="/icons/bus.svg" alt="icone onibus" /> no mapa para
+          informações.
+        </p>
         <div className={styles.input}>
           <label htmlFor="linha">Digite o número da linha: </label>
           <input

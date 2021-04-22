@@ -1,7 +1,7 @@
 .sidebarContainer {
     width: 30vw;
     background: #212121;
-    padding: 1rem;
+    padding: .5rem 1rem;
 }
 
 .title{
@@ -18,12 +18,29 @@
 .title img {
     width: 80px;
     height: 80px;
+    border-radius: 5rem;
 }
 
 form {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+form p {
+    color: white;
+    font-family: Helvetica, sans-serif;
+    margin-bottom: .3rem;
+    line-height: 1.5rem;  
+}
+
+form img {
+    width: 20px;
+    height: 20px;
+    margin: 0 .5rem;
+    background: #6937FF;
+    padding: .2rem;
+    border-radius: 1rem;
 }
 
 label {
@@ -78,4 +95,11 @@ select {
 
 .btnBuscar:hover {
     filter: brightness(80%);
+}
+
+@media (max-width: 840px) {
+    .sidebarContainer {
+        width: 100%;
+        padding: 0;
+    }
 }

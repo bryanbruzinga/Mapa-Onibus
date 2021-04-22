@@ -32,3 +32,12 @@ a {
 .leaflet-popup-content-wrapper {
     width: 350px;
 }
+
+@media (max-width: 840px) {
+    .container {
+        flex-direction: column;
+    }
+    .leaflet-container {
+        width: 100%;
+    }
+}
