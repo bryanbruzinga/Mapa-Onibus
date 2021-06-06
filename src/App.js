@@ -1,5 +1,6 @@
+import axios from "axios";
 import React from "react";
-import { GET_PARADA_TERMO_BUSCA, GET_POSICAO } from "./api";
+import { GET_PARADA_TERMO_BUSCA, GET_POSICAO, TOKEN_POST } from "./api";
 import Mapa from "./components/Mapa";
 import Sidebar from "./components/Sidebar/Sidebar";
 
@@ -8,9 +9,15 @@ function App() {
   const [dataPosicao, setDataPosicao] = React.useState([]);
 
   React.useEffect(() => {
+    autho();
     puxarParada();
     puxarPosicao();
   }, []);
+
+  function autho() {
+    const { url, options } = TOKEN_POST();
+    axios.post(url, options);
+  }
 
   function puxarPosicao() {
     const { url, options } = GET_POSICAO();
@@ -25,10 +32,6 @@ function App() {
       .then((r) => r.json())
       .then((json) => setDataParada(json));
   }
-
-  setTimeout(() => {
-    puxarPosicao();
-  }, 10000);
 
   return (
     <div className="container">

@@ -1,4 +1,18 @@
 export const ALT_URL = "https://aiko-olhovivo-proxy.aikodigital.io";
+const token = process.env.REACT_APP_TOKEN;
+
+export function TOKEN_POST() {
+  return {
+    url: ALT_URL + `/Login/Autenticar?token=${token}`,
+    options: {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(),
+    },
+  };
+}
 
 export function GET_POSICAO() {
   return {
